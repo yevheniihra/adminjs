@@ -10,6 +10,14 @@ import { RecordJSON } from '../../frontend/interfaces'
 import { NoticeMessage } from '../../frontend/hoc/with-notice'
 import { TranslateFunctions } from '../../utils/translate-functions.factory'
 
+export type ActionQueryParameters = {
+  sortBy?: string
+  direction?: 'asc' | 'desc'
+  filters?: Record<string, unknown>
+  perPage?: number
+  page?: number
+}
+
 export type ActionType = 'resource' | 'record' | 'bulk'
 
 /**
@@ -260,7 +268,7 @@ export type BuildInActions =
  *   icon: 'View',
  *   isVisible: true,
  *   handler: async () => {...},
- *   component: AdminJS.bundle('./my-action-component'),
+ *   component: 'MyAction',
  * }
  * ```
  *
@@ -447,7 +455,7 @@ export interface Action <T extends ActionResponse> {
   guard?: string;
   /**
    * Component which will be used to render the action. To pass the component
-   * use {@link AdminJS.bundle} method.
+   * use {@link ComponentLoader.add} or {@link ComponentLoader.override} method.
    *
    * Action components accepts {@link ActionProps} and are rendered by the
    * {@link BaseActionComponent}

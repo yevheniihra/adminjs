@@ -6,13 +6,15 @@ import { ActionJSON, buildActionClickHandler, RecordJSON, ResourceJSON } from '.
 import getBulkActionsFromRecords from './utils/get-bulk-actions-from-records'
 import { useActionResponseHandler, useTranslation } from '../../../hooks'
 import { actionsToButtonGroup } from '../action-header/actions-to-button-group'
+import allowOverride from '../../../hoc/allow-override'
+import { getResourceElementCss } from '../../../utils'
 
 type SelectedRecordsProps = {
   resource: ResourceJSON;
   selectedRecords?: Array<RecordJSON>;
 }
 
-export const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
+const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
   const { resource, selectedRecords } = props
   const { translateLabel } = useTranslation()
   const navigate = useNavigate()
@@ -41,9 +43,9 @@ export const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
     params,
     handleClick: handleActionClick,
   })
-
+  const contentTag = getResourceElementCss(resource.id, 'table-caption')
   return (
-    <TableCaption>
+    <TableCaption data-css={contentTag}>
       <Box flex py="sm" alignItems="center">
         <Title mr="lg">
           {translateLabel('selectedRecords', resource.id, { selected: selectedRecords.length })}
@@ -54,4 +56,9 @@ export const SelectedRecords: React.FC<SelectedRecordsProps> = (props) => {
   )
 }
 
-export default SelectedRecords
+const OverridableSelectedRecords = allowOverride(SelectedRecords, 'SelectedRecords')
+
+export {
+  OverridableSelectedRecords as default,
+  OverridableSelectedRecords as SelectedRecords,
+}

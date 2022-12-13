@@ -1,6 +1,6 @@
 # AdminJS
 
-[AdminJS](https://softwarebrothers.github.io/adminjs-dev/) is An automatic admin interface which can be plugged into your application. You, as a developer, provide database models (like posts, comments, stores, products or whatever else your application uses), and AdminJS generates UI which allows you (or other trusted users) to manage content.
+[AdminJS](https://softwarebrothers.github.io/adminjs-dev/) is an automatic admin interface that can be plugged into your application. You, as a developer, provide database models (like posts, comments, stores, products or whatever else your application uses), and AdminJS generates UI which allows you (or other trusted users) to manage content.
 
 Inspired by: [django admin](https://docs.djangoproject.com), [rails admin](https://github.com/sferik/rails_admin) and [active admin](https://activeadmin.info/).
 
@@ -24,7 +24,7 @@ https://adminjs-demo.herokuapp.com
 
 ## OpenSource SoftwareBrothers community
 
-- [Join the community](https://join.slack.com/t/adminbro/shared_invite/zt-1c7z4k0v9-kBNAivB8lX3OWLWu6TLE7A) to get help and be inspired.
+- [Join the community](https://adminjs.page.link/slack) to get help and be inspired.
 - subscribe to our [newsletter](http://opensource.softwarebrothers.co)
 
 # What kind of problems it solves

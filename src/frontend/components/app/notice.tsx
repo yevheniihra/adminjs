@@ -5,6 +5,7 @@ import { MessageBox } from '@adminjs/design-system'
 import { NoticeMessageInState, ReduxState } from '../../store/store'
 import { dropNotice } from '../../store/actions/drop-notice'
 import { setNoticeProgress } from '../../store/actions/set-notice-progress'
+import allowOverride from '../../hoc/allow-override'
 
 const TIME_TO_DISAPPEAR = 3
 
@@ -86,7 +87,7 @@ const NoticeBox: React.FC<NoticeBoxPropsFromState & NoticeBoxDispatchFromState> 
   const notice = notices.length ? notices[notices.length - 1] : null
   if (notice) {
     return (
-      <div data-testid="notice-wrapper">
+      <div data-testid="notice-wrapper" data-css="notice-wrapper">
         <NoticeElement
           key={notice.id}
           notice={notice}
@@ -113,8 +114,9 @@ const mapDispatchToProps = (dispatch): NoticeBoxDispatchFromState => ({
 })
 
 const ConnectedNoticeBox = connect(mapStateToProps, mapDispatchToProps)(NoticeBox)
+const OverridableConnectedNoticeBox = allowOverride(ConnectedNoticeBox, 'NoticeBox')
 
 export {
-  ConnectedNoticeBox as default,
-  ConnectedNoticeBox as NoticeBox,
+  OverridableConnectedNoticeBox as default,
+  OverridableConnectedNoticeBox as NoticeBox,
 }
