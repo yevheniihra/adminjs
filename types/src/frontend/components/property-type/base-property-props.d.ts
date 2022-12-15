@@ -21,7 +21,7 @@ export declare type SelectRecord = {
  *       properties: {
  *         name: {
  *           components: {
- *             show: AdminJS.bundle('./my-react-component'),
+ *             show: 'MyReactComponent',
  *           },
  *         },
  *       },

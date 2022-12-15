@@ -1,6 +1,6 @@
 import React from 'react';
 declare type Props = {
-    toggleSidebar: (any: any) => void;
+    toggleSidebar: () => void;
 };
 declare const OverridableTopbar: React.ComponentType<Props & {
     OriginalComponent?: React.ComponentType<Props> | undefined;
