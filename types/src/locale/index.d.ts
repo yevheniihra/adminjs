@@ -179,6 +179,11 @@ export declare const locales: {
                 needMoreSolutions_title: string;
                 needMoreSolutions_subtitle: string;
                 invalidCredentials: string;
+                keyPlaceholder: string;
+                valuePlaceholder: string;
+                initialKey: string;
+                keyInUse: string;
+                keyValuePropertyDefaultDescription: string;
             };
         };
     };

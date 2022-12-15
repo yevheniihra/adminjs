@@ -19,9 +19,7 @@ export declare type BreadcrumbProps = {
      */
     actionName: string;
 };
-/**
- * @component
- * @private
- */
-export declare const Breadcrumbs: React.FC<BreadcrumbProps>;
-export default Breadcrumbs;
+declare const OverridableBreadcrumbs: React.ComponentType<BreadcrumbProps & {
+    OriginalComponent?: React.ComponentType<BreadcrumbProps> | undefined;
+}>;
+export { OverridableBreadcrumbs as default, OverridableBreadcrumbs as Breadcrumbs };

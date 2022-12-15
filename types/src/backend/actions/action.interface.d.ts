@@ -9,6 +9,13 @@ import { LayoutElement, LayoutElementFunction } from '../utils/layout-element-pa
 import { RecordJSON } from '../../frontend/interfaces';
 import { NoticeMessage } from '../../frontend/hoc/with-notice';
 import { TranslateFunctions } from '../../utils/translate-functions.factory';
+export declare type ActionQueryParameters = {
+    sortBy?: string;
+    direction?: 'asc' | 'desc';
+    filters?: Record<string, unknown>;
+    perPage?: number;
+    page?: number;
+};
 export declare type ActionType = 'resource' | 'record' | 'bulk';
 /**
  * Execution context for an action. It is passed to the {@link Action#handler},
@@ -233,7 +240,7 @@ export declare type BuildInActions = 'show' | 'edit' | 'list' | 'delete' | 'bulk
  *   icon: 'View',
  *   isVisible: true,
  *   handler: async () => {...},
- *   component: AdminJS.bundle('./my-action-component'),
+ *   component: 'MyAction',
  * }
  * ```
  *
@@ -420,7 +427,7 @@ export interface Action<T extends ActionResponse> {
     guard?: string;
     /**
      * Component which will be used to render the action. To pass the component
-     * use {@link AdminJS.bundle} method.
+     * use {@link ComponentLoader.add} or {@link ComponentLoader.override} method.
      *
      * Action components accepts {@link ActionProps} and are rendered by the
      * {@link BaseActionComponent}

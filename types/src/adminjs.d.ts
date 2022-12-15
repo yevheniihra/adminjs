@@ -7,7 +7,8 @@ import { RecordActionResponse, Action, BulkActionResponse } from './backend/acti
 import { ListActionResponse } from './backend/actions/list/list-action';
 import { Locale } from './locale/config';
 import { TranslateFunctions } from './utils/translate-functions.factory';
-import { OverridableComponent } from './frontend/utils/overridable-component';
+import { ComponentLoader } from './backend/utils/component-loader';
+import { OverridableComponent } from './frontend';
 export declare const VERSION: any;
 export declare const defaultOptions: AdminJSOptionsWithDefault;
 declare type ActionsMap = {
@@ -43,6 +44,7 @@ declare class AdminJS {
     locale: Locale;
     i18n: I18n;
     translateFunctions: TranslateFunctions;
+    componentLoader: ComponentLoader;
     /**
      * List of all default actions. If you want to change the behavior for all actions like:
      * _list_, _edit_, _show_, _delete_ and _bulkDelete_ you can do this here.
@@ -87,7 +89,7 @@ declare class AdminJS {
      */
     initialize(): Promise<void>;
     /**
-     * Watches for local changes in files imported via {@link AdminJS.bundle}.
+     * Watches for local changes in files imported via {@link ComponentLoader}.
      * It doesn't work on production environment.
      *
      * @return  {Promise<never>}
@@ -157,11 +159,14 @@ declare class AdminJS {
      * @example <caption>Overriding AdminJS core components</caption>
      * // somewhere in the code
      * AdminJS.bundle('./path/to/new-sidebar/component', 'SidebarFooter')
+     *
+     * @deprecated since version 6.5.0, use {@link ComponentLoader} instead
      */
     static bundle(src: string, componentName?: OverridableComponent): string;
+    private static __unsafe_componentIndex;
+    static __unsafe_staticComponentLoader: ComponentLoader;
 }
 interface AdminJS extends TranslateFunctions {
 }
 export declare const registerAdapter: typeof AdminJS.registerAdapter;
-export declare const bundle: typeof AdminJS.bundle;
 export default AdminJS;

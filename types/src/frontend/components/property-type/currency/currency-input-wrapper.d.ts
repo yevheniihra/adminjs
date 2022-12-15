@@ -1,9 +1,12 @@
 import { CurrencyInputProps } from '@adminjs/design-system';
-import { FC } from 'react';
+import React from 'react';
 export declare type CurrencyInputWrapperProps = {
     id: string;
     initial: string;
-    options?: Record<string, any>;
+    options?: CurrencyInputProps;
     onChange: (value: string | undefined) => void;
-} & CurrencyInputProps;
-export declare const CurrencyInputWrapper: FC<CurrencyInputWrapperProps>;
+};
+declare const OverridableCurrencyInputWrapper: React.ComponentType<CurrencyInputWrapperProps & {
+    OriginalComponent?: React.ComponentType<CurrencyInputWrapperProps> | undefined;
+}>;
+export { OverridableCurrencyInputWrapper as CurrencyInputWrapper, OverridableCurrencyInputWrapper as default, };
