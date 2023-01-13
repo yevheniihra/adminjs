@@ -1,6 +1,5 @@
 import React from 'react';
 export declare type StyledBackButtonProps = {
-    resourceId: string;
     showInDrawer: boolean;
 };
 declare const OverridableStyledBackButton: React.ComponentType<StyledBackButtonProps & {
