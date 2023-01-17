@@ -169,7 +169,7 @@ class ApiController {
       return missingRecordError as RecordActionResponse
     }
 
-    [record] = await populator([record], actionContext)
+    [record] = await populator([record])
 
     actionContext.record = record
     const jsonWithRecord = await actionContext.action.handler(request, response, actionContext)
@@ -220,7 +220,7 @@ class ApiController {
         `record with given id: "${recordIds}" cannot be found in resource "${resourceId}"`,
       ].join('\n'), 'Action#handler')
     }
-    records = await populator(records, actionContext)
+    records = await populator(records)
     const jsonWithRecord = await actionContext.action.handler(request, response, { ...actionContext, records })
 
     if (jsonWithRecord && jsonWithRecord.records) {
