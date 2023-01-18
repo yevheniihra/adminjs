@@ -4,9 +4,9 @@
 .nova
 .idea
 .cache
-lib
+#lib
 built
-types
+#types
 
 coverage
 
