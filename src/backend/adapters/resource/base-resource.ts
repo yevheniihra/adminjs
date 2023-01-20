@@ -160,7 +160,7 @@ class BaseResource {
    * @return {Promise<BaseRecord> | null}   record
    * @abstract
    */
-  async findOne(id: string): Promise<BaseRecord | null> {
+  async findOne(id: string, context: any = {}): Promise<BaseRecord | null> {
     throw new NotImplementedError('BaseResource#findOne')
   }
 
@@ -171,7 +171,7 @@ class BaseResource {
    *
    * @return  {Promise<Array<BaseRecord>>} records
    */
-  async findMany(ids: Array<string | number>, context: any): Promise<Array<BaseRecord>> {
+  async findMany(ids: Array<string | number>, context: any = {}): Promise<Array<BaseRecord>> {
     throw new NotImplementedError('BaseResource#findMany')
   }
 

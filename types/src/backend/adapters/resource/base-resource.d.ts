@@ -127,7 +127,7 @@ declare class BaseResource {
      * @return {Promise<BaseRecord> | null}   record
      * @abstract
      */
-    findOne(id: string): Promise<BaseRecord | null>;
+    findOne(id: string, context?: any): Promise<BaseRecord | null>;
     /**
      * Finds many records based on the resource ids
      *
@@ -135,7 +135,7 @@ declare class BaseResource {
      *
      * @return  {Promise<Array<BaseRecord>>} records
      */
-    findMany(ids: Array<string | number>): Promise<Array<BaseRecord>>;
+    findMany(ids: Array<string | number>, context?: any): Promise<Array<BaseRecord>>;
     /**
      * Builds new Record of given Resource.
      *
