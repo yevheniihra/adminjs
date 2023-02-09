@@ -156,7 +156,8 @@ class ApiController {
       return invalidRecordError as RecordActionResponse
     }
 
-    let record = await actionContext.resource.findOne(recordId)
+    const context = resourceId === 'Corps' || resourceId === 'Kreise' ? { subscribers: 0, members: 0, users: 0 } : {}
+    let record = await actionContext.resource.findOne(recordId, context)
 
     if (!record) {
       const missingRecordError = actionErrorHandler(
