@@ -31,7 +31,9 @@ export async function populator(
 
     const key = propertyDecorator.name();
     // @ts-ignore
-    const {excludeOnPopulate = null} = properties[key] || {};
+    const {excludeOnPopulate = null,preventFromPopulate=false} = properties[key] || {};
+
+    if(preventFromPopulate) return;
 
     // @ts-ignore
     const context = excludeOnPopulate
